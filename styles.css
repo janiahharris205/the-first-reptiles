@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated reptile skin background */
+/* Animated reptile skin background 
 body::before {
     content: '';
     position: fixed;
@@ -31,7 +31,7 @@ body::before {
     animation: scaleShift 20s ease-in-out infinite;
 }
 
-/* Reptile skin texture overlay */
+/* Reptile skin texture overlay 
 body::after {
     content: '';
     position: fixed;
@@ -455,6 +455,670 @@ li {
     transform: translateX(5px);
 }
 
+/* Cursor trail effect 
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><text y="15" font-size="16">🦎</text></svg>'), auto;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    nav a {
+        font-size: 1rem;
+    }
+    
+    h2::before {
+        display: none;
+    }
+}
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: #2d5016;
+    color: #333;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated reptile skin background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse 8px 10px at 50% 50%, #4a7c2e 0%, #3d6625 40%, transparent 50%),
+        radial-gradient(ellipse 7px 9px at 50% 50%, #5a8c3e 0%, #4a7c2e 40%, transparent 50%);
+    background-size: 25px 25px, 25px 25px;
+    background-position: 0 0, 12.5px 12.5px;
+    z-index: 0;
+    pointer-events: none;
+    animation: scaleShift 20s ease-in-out infinite;
+}
+
+/* Reptile skin texture overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(0,0,0,0.1) 49%, rgba(0,0,0,0.1) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(0,0,0,0.08) 49%, rgba(0,0,0,0.08) 51%, transparent 52%);
+    background-size: 15px 15px;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+@keyframes scaleShift {
+    0%, 100% {
+        transform: translate(0, 0);
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        transform: translate(-2px, -2px);
+        filter: hue-rotate(5deg);
+    }
+    50% {
+        transform: translate(2px, 0px);
+        filter: hue-rotate(-5deg);
+    }
+    75% {
+        transform: translate(0px, 2px);
+        filter: hue-rotate(3deg);
+    }
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    background: linear-gradient(135deg, rgba(30, 60, 20, 0.95), rgba(20, 40, 15, 0.95));
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+    border-bottom: 2px solid #5a8c3e;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #b8e986;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    position: relative;
+}
+
+nav a::before {
+    content: '🦎';
+    position: absolute;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+nav a:hover::before {
+    opacity: 1;
+    left: -5px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.hero {
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)),
+        radial-gradient(ellipse at center, transparent 0%, rgba(45, 80, 22, 0.8) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><path fill="%23543210" d="M0,300 Q300,200 600,300 T1200,300 L1200,600 L0,600 Z"/></svg>');
+    background-size: cover;
+    background-position: center;
+    padding: 6rem 2rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+    animation: heroBreath 8s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes heroBreath {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.hero::before {
+    content: '🦎';
+    position: absolute;
+    font-size: 15rem;
+    opacity: 0.05;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: floatLizard 15s ease-in-out infinite;
+}
+
+@keyframes floatLizard {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-5deg);
+    }
+    50% {
+        transform: translate(-50%, -45%) rotate(5deg);
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(90, 140, 62, 0.5);
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 20px rgba(90, 140, 62, 0.5);
+    }
+    50% {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 30px rgba(90, 140, 62, 0.8);
+    }
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Image Styling */
+.hero-image-container {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-placeholder {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.content-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.content-image:hover {
+    transform: scale(1.02);
+}
+
+.image-caption {
+    font-style: italic;
+    color: #3d6625;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.highlight-image {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.inline-image {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin: 1rem 0;
+}
+
+.timeline-image {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.timeline-photo {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(90, 140, 62, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.timeline-photo:hover {
+    transform: scale(1.05);
+}
+
+.card-image {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.feature-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.species-card:hover .feature-image {
+    transform: scale(1.1);
+}
+
+.species-image-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #e8f7e8, #d0e7d0);
+}
+
+.species-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.species-card:hover .species-image {
+    transform: scale(1.15);
+}
+
+.feature-images-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.mini-image-box {
+    text-align: center;
+}
+
+.mini-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.mini-image:hover {
+    transform: translateY(-5px);
+}
+
+.mini-caption {
+    font-size: 0.85rem;
+    color: #3d6625;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.fossil-site-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.site-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.fossil-item:hover .site-image {
+    transform: scale(1.2);
+}
+
+.fossil-detail-image {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.detail-image {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(90, 140, 62, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.detail-image:hover {
+    transform: scale(1.03);
+}
+
+.preservation-gallery {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.content-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(248,252,245,0.98));
+    border-radius: 15px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+    border: 1px solid rgba(90, 140, 62, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 15px 50px rgba(0,0,0,0.4),
+        inset 0 1px 0 rgba(255,255,255,0.8);
+}
+
+h2 {
+    color: #2d5016;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #5a8c3e;
+    padding-bottom: 0.5rem;
+    position: relative;
+}
+
+h2::before {
+    content: '🦎';
+    position: absolute;
+    left: -40px;
+    font-size: 1.5rem;
+    animation: crawl 3s ease-in-out infinite;
+}
+
+@keyframes crawl {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+}
+
+h3 {
+    color: #3d6625;
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.species-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.species-card {
+    background: linear-gradient(145deg, #f8fcf5, #ffffff);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.species-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(90, 140, 62, 0.1) 0%, transparent 70%);
+    transition: transform 0.5s ease;
+    transform: scale(0);
+}
+
+.species-card:hover::before {
+    transform: scale(1);
+}
+
+.species-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(90, 140, 62, 0.4);
+    border-color: #5a8c3e;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-item {
+    background: linear-gradient(135deg, #f9fcf7, #ffffff);
+    border-left: 4px solid #5a8c3e;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '🦎';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: blink 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 0.3;
+    }
+}
+
+.timeline-item:hover {
+    background: #e8f7e8;
+    transform: translateX(10px);
+    box-shadow: -5px 5px 20px rgba(90, 140, 62, 0.3);
+}
+
+.timeline-date {
+    color: #5a8c3e;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.fossil-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.fossil-item {
+    background: linear-gradient(135deg, #fff, #f8fcf5);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.fossil-item:hover {
+    border-color: #5a8c3e;
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 10px 30px rgba(90, 140, 62, 0.3);
+}
+
+.fossil-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.fossil-item:hover .fossil-icon {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+ul {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.highlight {
+    background: linear-gradient(135deg, #fffacd, #fff8b8);
+    padding: 1.5rem;
+    border-left: 4px solid #5a8c3e;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 15px rgba(90, 140, 62, 0.2);
+    transition: all 0.3s ease;
+}
+
+.highlight:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(90, 140, 62, 0.3);
+}
+
+.resource-section {
+    margin-bottom: 3rem;
+}
+
+.resource-card {
+    background: linear-gradient(135deg, #f8fcf5, #ffffff);
+    border-left: 4px solid #5a8c3e;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    background: #e8f7e8;
+    transform: translateX(8px);
+    box-shadow: -5px 5px 15px rgba(90, 140, 62, 0.2);
+}
+
+.resource-card h4 {
+    color: #2d5016;
+    margin-bottom: 0.5rem;
+}
+
+.resource-card a {
+    color: #3d6625;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.resource-card a:hover {
+    color: #5a8c3e;
+    text-decoration: underline;
+}
+
+.references {
+    background: linear-gradient(135deg, #e8f7e8, #f0faf0);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border: 2px solid #5a8c3e;
+}
+
+.reference-item {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    text-indent: -1.5rem;
+    transition: all 0.2s ease;
+}
+
+.reference-item:hover {
+    color: #2d5016;
+    transform: translateX(5px);
+}
+
 /* Cursor trail effect */
 body {
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><text y="15" font-size="16">🦎</text></svg>'), auto;
@@ -475,5 +1139,24 @@ body {
     
     h2::before {
         display: none;
+    }
+    
+    .content-image,
+    .timeline-photo,
+    .detail-image {
+        max-width: 100%;
+    }
+    
+    .feature-images-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .species-image-container,
+    .fossil-site-image {
+        height: 200px;
+    }
+    
+    .hero-image-container {
+        margin-bottom: 1rem;
     }
 }
